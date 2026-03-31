@@ -1,0 +1,12 @@
+{
+  "name": "cloud-cultura-app",
+  "version": "1.0.0",
+  "description": "App para trabalho de computação em nuvem",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
