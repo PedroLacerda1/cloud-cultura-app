@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Aplicação rodando na nuvem com CI/CD 🚀');
+  res.send('Aplicação rodando na nuvem com CI/CD 🚀😊');
 });
 
 app.get('/status', (req, res) => {
