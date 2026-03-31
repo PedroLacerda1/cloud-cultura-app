@@ -1,0 +1,32 @@
+name: Deploy Node.js App to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Zip da aplicação
+      run: zip -r app.zip .
+
+    - name: Deploy no Azure
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: cloud-cultura-app
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: app.zip
